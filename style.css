@@ -1,0 +1,438 @@
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+/* ========================================
+   기본 설정
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background: #ffffff;
+    color: #111111;
+
+    font-family: 'Pretendard', sans-serif;
+}
+
+
+/* ========================================
+   메인 영역
+======================================== */
+
+.portfolio {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+    padding: 75px 40px 100px;
+}
+
+
+/* ========================================
+   이름
+======================================== */
+
+.intro {
+    margin-bottom: 200px;
+    text-align: center;
+}
+
+.intro h1 {
+    margin: 0;
+
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.intro h2 {
+    margin: 4px 0 0;
+
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+
+/* ========================================
+   Portfolio 메뉴
+======================================== */
+
+.portfolio-menu {
+    display: flex;
+    flex-direction: column;
+
+    gap: 48px;
+    text-align: left;
+}
+
+.portfolio-menu a {
+    color: #111111;
+
+    text-decoration: none;
+
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    transition: opacity 0.2s ease;
+}
+
+.portfolio-menu a:hover {
+    opacity: 0.45;
+}
+
+
+/* ========================================
+   모바일
+======================================== */
+
+@media (max-width: 768px) {
+
+    .portfolio {
+        padding: 50px 25px 80px;
+    }
+
+    .intro {
+        margin-bottom: 100px;
+    }
+
+    .intro h1,
+    .intro h2 {
+        font-size: 25px;
+    }
+
+    .portfolio-menu {
+        gap: 35px;
+    }
+
+    .portfolio-menu a {
+        font-size: 25px;
+    }
+
+}
+/* ========================================
+   Model Portfolio
+======================================== */
+
+.model-portfolio {
+    width: 100%;
+    max-width: 1600px;
+
+    margin: 0 auto;
+    padding: 60px 60px 100px;
+}
+
+.model-header {
+    margin-bottom: 80px;
+}
+
+.back-home {
+    display: inline-block;
+
+    color: #111111;
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    margin-bottom: 60px;
+
+    transition: opacity 0.2s ease;
+}
+
+.back-home:hover {
+    opacity: 0.45;
+}
+
+.model-header h1 {
+    margin: 0;
+
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.model-gallery {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+.model-item {
+    width: 100%;
+}
+
+.model-item img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+/* ========================================
+   사진 상세 화면
+======================================== */
+
+.photo-modal {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+}
+
+.photo-modal.active {
+    display: flex;
+}
+
+
+.photo-detail {
+    position: relative;
+
+    width: fit-content;
+    max-width: 90vw;
+
+    background: transparent;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+}
+
+
+.photo-modal.active .photo-detail {
+    animation: photoDetailIn 0.4s ease forwards;
+}
+
+
+@keyframes photoDetailIn {
+
+    from {
+        opacity: 0;
+        transform:
+            translate(var(--photo-start-x), var(--photo-start-y))
+            scale(var(--photo-start-scale));
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+}
+
+
+.photo-modal-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    border: none;
+    background: none;
+
+    color: #888888;
+
+    font-family: inherit;
+    font-size: 32px;
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+
+.photo-detail-image {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.photo-detail-image img {
+    display: block;
+
+    max-width: 85vw;
+    max-height: 90vh;
+
+    width: auto;
+    height: auto;
+}
+
+
+/* ========================================
+   모바일 상세 화면
+======================================== */
+
+@media (max-width: 768px) {
+
+    .photo-detail {
+        width: fit-content;
+        max-width: 95vw;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 40px 20px;
+    }
+
+
+    .photo-detail-image img {
+        max-width: 90vw;
+        max-height: 80vh;
+    }
+
+}
+/* ========================================
+   Model Portfolio 흐르는 사진 영역
+======================================== */
+
+.model-gallery-viewport {
+    position: relative;
+
+    width: 100%;
+    height: 80vh;
+
+    overflow: hidden;
+}
+.model-gallery {
+    will-change: transform;
+
+    padding-top: 100px;
+}
+/* ========================================
+   사진 위쪽 Fade Out
+======================================== */
+
+.model-gallery-viewport::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 180px;
+
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+/* ========================================
+   SNS 링크
+======================================== */
+
+.social-links {
+    position: fixed;
+
+    top: 55px;
+    right: 250px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    z-index: 100;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    color: #111111;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.social-link svg {
+    width: 30px;
+    height: 30px;
+
+    display: block;
+}
+
+.social-link:hover {
+    color: #888888;
+}
+@media (max-width: 768px) {
+
+    .social-links {
+        top: 25px;
+        right: 25px;
+
+        gap: 15px;
+    }
+
+    .social-link {
+        width: 21px;
+        height: 21px;
+    }
+
+    .social-link svg {
+        width: 21px;
+        height: 21px;
+    }
+
+}
+/* 모델 기본 정보 */
+.model-info {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.model-info h2 {
+    margin: 0 0 30px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.model-info p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+}
