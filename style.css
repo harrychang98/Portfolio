@@ -128,11 +128,11 @@ body {
     max-width: 1600px;
 
     margin: 0 auto;
-    padding: 60px 60px 100px;
+    padding: 10px 60px 100px;
 }
 
 .model-header {
-    margin-bottom: 80px;
+    margin-bottom: 15px;
 }
 
 .back-home {
@@ -165,7 +165,7 @@ body {
 .model-gallery {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 30px;
 }
@@ -327,7 +327,7 @@ body {
 .model-gallery {
     will-change: transform;
 
-    padding-top: 100px;
+    padding-top: 50px;
 }
 /* ========================================
    사진 위쪽 Fade Out
@@ -342,7 +342,7 @@ body {
     left: 0;
 
     width: 100%;
-    height: 180px;
+    height: 80px;
 
     background: linear-gradient(
         to bottom,
@@ -420,7 +420,7 @@ body {
 /* 모델 기본 정보 */
 .model-info {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .model-info h2 {

@@ -112,6 +112,12 @@ const portfolioData = [
 // 갤러리 자동 생성
 // ========================================
 
+// ========================================
+// 사진 순서 무작위 섞기
+// ========================================
+
+portfolioData.sort(() => Math.random() - 0.5);
+
 const modelGallery = document.querySelector('.model-gallery');
 
 portfolioData.forEach(function (item, index) {
