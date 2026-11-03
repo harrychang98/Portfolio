@@ -104,6 +104,27 @@ const portfolioData = [
     },
     {
         image: "model-34.jpg"
+    },
+    {
+        image: "model-35.jpg"
+    },
+    {
+        image: "model-36.jpg"
+    },
+    {
+        image: "model-37.jpg"
+    },
+    {
+        image: "model-38.jpg"
+    },
+    {
+        image: "model-39.jpg"
+    },
+    {
+        image: "model-40.jpg"
+    },
+    {
+        image: "model-41.jpg"
     }
 ];
 
