@@ -148,16 +148,38 @@ portfolioData.forEach(function (item, index) {
     modelItem.className = 'model-item';
 
 
-    const image = document.createElement('img');
+   const image = document.createElement('img');
 
 image.alt = `Model Portfolio ${String(index + 1).padStart(2, '0')}`;
+
+let retryCount = 0;
+const maxRetries = 3;
 
 image.onload = function () {
     console.log("이미지 로딩 성공:", item.image);
 };
 
 image.onerror = function () {
-    console.error("이미지 로딩 실패:", item.image);
+
+    if (retryCount < maxRetries) {
+
+        retryCount++;
+
+        console.warn(
+            `이미지 재시도 ${retryCount}/${maxRetries}:`,
+            item.image
+        );
+
+        setTimeout(function () {
+            image.src = item.image + "?retry=" + retryCount;
+        }, 500);
+
+    } else {
+
+        console.error("이미지 최종 로딩 실패:", item.image);
+
+    }
+
 };
 
 image.src = item.image;
