@@ -150,9 +150,17 @@ portfolioData.forEach(function (item, index) {
 
     const image = document.createElement('img');
 
-    image.src = item.image;
+image.alt = `Model Portfolio ${String(index + 1).padStart(2, '0')}`;
 
-    image.alt = `Model Portfolio ${String(index + 1).padStart(2, '0')}`;
+image.onload = function () {
+    console.log("이미지 로딩 성공:", item.image);
+};
+
+image.onerror = function () {
+    console.error("이미지 로딩 실패:", item.image);
+};
+
+image.src = item.image;
 
 
     modelItem.appendChild(image);
