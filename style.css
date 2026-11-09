@@ -16,10 +16,30 @@ body {
     margin: 0;
     padding: 0;
 
-    background: #ffffff;
+    background-color: #ffffff;
+
     color: #111111;
 
     font-family: 'Pretendard', sans-serif;
+}
+
+/* 종이 질감 배경 */
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background-image: url("background.jpg");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: auto;
+
+    opacity: 0.50;
+
+    pointer-events: none;
+
+    z-index: -1;
 }
 
 
